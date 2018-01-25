@@ -4,32 +4,26 @@ pipeline {
 	stages {
 		stage ('Compile Stage') {
 			steps {
-				withMaven(maven : 'apache-maven-3.5.0'){
-					sh 'mvn clean compile'
-				}
+				
+  				bat 'mvn clean compile'
+				
 			}
 		}
 
 		stage ('Testing Stage') {
 			steps {
-				withMaven(maven : 'apache-maven-3.5.0'){
-					sh 'mvn test'
-				}
+				
+				bat 'mvn test'
+				
 			}
 		}
 		stage ('Installing Stage') {
 			steps {
-				withMaven(maven : 'apache-maven-3.5.0'){
-					sh 'mvn install'
-				}
+				
+					bat 'mvn install'
+				
 			}				
 		}	
-		stage ('Deployment Stage') {
-			steps {
-				withMaven(maven : 'apache-maven-3.5.0'){
-					sh 'mvn deploy'
-				}
-			}				
-		}
+		
 	}
 }
